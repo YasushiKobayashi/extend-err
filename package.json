@@ -48,8 +48,10 @@
     "lint": "eslint --ext js --ext jsx --ext ts --ext tsx src",
     "fix": "prettier --parser typescript --write 'src/**/*.ts{,x}'"
   },
+  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^24.0.12",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
     "@typescript-eslint/parser": "^1.11.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -79,8 +81,5 @@
   "bugs": {
     "url": "https://github.com/YasushiKobayashi/extend-err/issues"
   },
-  "homepage": "https://github.com/YasushiKobayashi/extend-err#readme",
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^1.11.0"
-  }
+  "homepage": "https://github.com/YasushiKobayashi/extend-err#readme"
 }
