@@ -1,4 +1,4 @@
-import ExtendErr from './ExtendErr';
+import ExtendErr from './extend-err';
 
 describe('ExtendErr', () => {
   it('define custom error', () => {
@@ -46,7 +46,6 @@ describe('ExtendErr', () => {
         expect(e.errorStack.errorStack).not.toBeUndefined();
         if (e.errorStack.errorStack) {
           expect(e.errorStack.errorStack.message).toBe(builtinError);
-          console.log(e);
         }
       }
     }
