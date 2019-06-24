@@ -1,6 +1,6 @@
 {
   "name": "extend-err",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/extend-err.js",
   "author": "YasushiKobayashi <ptpadan@gmail.com> (https://github.com/YasushiKobayashi)",
