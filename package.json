@@ -1,0 +1,85 @@
+{
+  "name": "extend-err",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/extend-err.js",
+  "author": "YasushiKobayashi <ptpadan@gmail.com>",
+  "prettier": {
+    "printWidth": 100,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true,
+    "arrowParens": "avoid",
+    "parser": "flow"
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "react",
+      "enzyme",
+      "jest-enzyme"
+    ],
+    "transform": {
+      "^.+\\.(j|t)sx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "  <rootDir>/node_modules/(?!lodash-es/.*)"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts?|tsx?|js?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "scripts": {
+    "prepublish": "npm run build:production",
+    "build": "rollup -c",
+    "build:production": " NODE_ENV=production npm run build",
+    "start": "rollup -cw",
+    "watch": "rollup -cw",
+    "test": "jest --runInBand --coverage",
+    "test:watch": "jest --watch",
+    "lint": "npm run lint:ts && npm run lint:sass",
+    "lint:ts": "eslint --ext js --ext jsx --ext ts --ext tsx src",
+    "fix": "prettier --parser typescript --write 'src/**/*.ts{,x}'"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.13.0",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.0",
+    "prettier-stylelint": "^0.4.2",
+    "rollup": "^1.11.0",
+    "rollup-plugin-babili": "^3.1.1",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-dts": "^0.15.1",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-typescript2": "^0.21.0",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^5.4.5",
+    "typescript": "^3.4.5"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YasushiKobayashi/extend-err.git"
+  },
+  "author": "YasushiKobayashi <ptpadan@gmail.com> (https://github.com/YasushiKobayashi)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YasushiKobayashi/extend-err/issues"
+  },
+  "homepage": "https://github.com/YasushiKobayashi/extend-err#readme"
+}
