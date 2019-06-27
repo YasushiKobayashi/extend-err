@@ -2,7 +2,7 @@ interface ExtendErrInterface extends Error {
   errorStack?: Error;
 }
 
-class ExtendErr extends Error implements ExtendErrInterface {
+abstract class ExtendErr extends Error implements ExtendErrInterface {
   errorStack?: Error;
 
   constructor(message?: string | Error, error?: Error) {
@@ -12,9 +12,6 @@ class ExtendErr extends Error implements ExtendErrInterface {
     if (message instanceof Error) {
       this.message = message.message;
     }
-
-    this.name = new.target.name;
-    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 

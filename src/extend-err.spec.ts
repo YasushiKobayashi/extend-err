@@ -1,12 +1,23 @@
 import ExtendErr from './extend-err';
 
+interface CustomErrorInterface extends ExtendErr {}
+
+class CustomError extends ExtendErr implements CustomErrorInterface {
+  constructor(message?: string | Error, error?: Error) {
+    super(message, error);
+
+    this.name = new.target.name;
+    Object.setPrototypeOf(this, new.target.prototype);
+  }
+}
+
 describe('ExtendErr', () => {
   it('define custom error', () => {
     const test = 'test';
-    const e = new ExtendErr(test);
-    expect(e.name).toBe('ExtendErr');
+    const e = new CustomError(test);
+    expect(e.name).toBe('CustomError');
     expect(e.message).toBe(test);
-    expect(e instanceof ExtendErr).toBe(true);
+    expect(e instanceof CustomError).toBe(true);
   });
 
   it('throw error', () => {
@@ -15,10 +26,10 @@ describe('ExtendErr', () => {
       try {
         throw new Error(builtinError);
       } catch (e) {
-        throw new ExtendErr(e);
+        throw new CustomError(e);
       }
     } catch (e) {
-      expect(e.name).toBe('ExtendErr');
+      expect(e.name).toBe('CustomError');
       expect(e.message).toBe(builtinError);
     }
   });
@@ -32,13 +43,13 @@ describe('ExtendErr', () => {
         try {
           throw new Error(builtinError);
         } catch (e) {
-          throw new ExtendErr(customError1, e);
+          throw new CustomError(customError1, e);
         }
       } catch (e) {
-        throw new ExtendErr(customError2, e);
+        throw new CustomError(customError2, e);
       }
     } catch (e) {
-      expect(e.name).toBe('ExtendErr');
+      expect(e.name).toBe('CustomError');
       expect(e.message).toBe(customError2);
       expect(e.errorStack).not.toBeUndefined();
       if (e.errorStack) {
